@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>URust</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on URust</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Oct 2024 16:37:40 +0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Install Nala on Ubuntu</title>
+      <link>http://localhost:1313/posts/1_how-to-install-nala-on-ubuntu/</link>
+      <pubDate>Wed, 09 Oct 2024 16:37:40 +0700</pubDate>
+      
+      <guid>http://localhost:1313/posts/1_how-to-install-nala-on-ubuntu/</guid>
+      <description>&lt;h3 id=&#34;how-to-install-nala-on-ubuntu&#34;&gt;How to Install Nala on Ubuntu&lt;/h3&gt;
+</description>
+      <content>&lt;h3 id=&#34;how-to-install-nala-on-ubuntu&#34;&gt;How to Install Nala on Ubuntu&lt;/h3&gt;
+&lt;p&gt;Nala is a front-end for APT (Advanced Package Tool) that provides a cleaner and more user-friendly experience for managing packages on Debian-based systems like Ubuntu. Follow these simple steps to install Nala on your Ubuntu system:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Update the System&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Open your terminal and update the package lists:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt upgrade -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Add the Nala Repository&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Add the Nala repository to your system by running the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;deb [arch=amd64] http://deb.volian.org/volian/ scar main&amp;#34;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/volian.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Import the GPG Key&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Download and import the GPG key to verify the packages:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget -qO - https://deb.volian.org/volian/scar.key | sudo gpg --dearmour -o /usr/share/keyrings/volian-archive-keyring.gpg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install Nala&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After adding the repository and key, update the package lists again and install Nala:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install nala -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Using Nala&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now you can use &lt;code&gt;nala&lt;/code&gt; instead of &lt;code&gt;apt&lt;/code&gt; for package management. For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nala update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nala install package-name
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;That&amp;rsquo;s it!&lt;/strong&gt; You&amp;rsquo;ve successfully installed Nala on your Ubuntu system. Enjoy a more pleasant package management experience!&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
